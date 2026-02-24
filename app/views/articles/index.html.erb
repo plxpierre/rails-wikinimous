@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3 border-bottom mb-4">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <i class="fa-solid fa-book-open-reader"></i> Wikinimous
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h1>All Articles</h1>
+        <%= link_to new_article_path, class: "btn btn-outline-primary" do %>
+          <i class="fa-solid fa-plus"></i> New Article
+        <% end %>
+      </div>
+
+      <div class="list-group">
+        <% @articles.each do |article| %>
+          <%= link_to article_path(article), class: "list-group-item list-group-item-action flex-column align-items-start py-3" do %>
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1 text-primary"><%= article.title %></h5>
+            </div>
+            <p class="mb-1 text-secondary"><%= article.content.truncate(150) %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%# <h1>All Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <%# <li><%= link_to article.title, article_path(article) %></li>
+  <%# <% end %> 
+<%# </ul> %>
